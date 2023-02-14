@@ -4,7 +4,7 @@ import React, { useState } from "react"
 import { DragDropContext } from "react-beautiful-dnd"
 import { initialData } from "../src/data"
 
-const Column = dynamic(() => import("../src/Column"), {ssr: false})
+const Column = dynamic(() => import("../src/Column"), { ssr: false })
 
 const reorderColumnList = (sourceCol, startIndex, endIndex) => {
   const newTaskIds = Array.from(sourceCol.taskIds);
