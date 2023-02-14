@@ -7,7 +7,7 @@ const colors = {
   "subtle-text": "#9B9B9B",
 
   "column-bg": "#16181D",
-  "column-header-bg": "#1A1D23",
+  "secondary-bg": "#1A1D23",
 
   "card-bg": "#242731",
   "card-border": "#2D313E"
