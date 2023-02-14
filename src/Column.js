@@ -8,7 +8,7 @@ const Column = ({column, tasks}) => {
       <Flex
         align="center"
         h="60px"
-        bg="column-header-bg"
+        bg="secondary-bg"
         rounded="3px 3px 0 0"
         px="1.5rem"
         mb="1.5rem"
