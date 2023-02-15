@@ -3,6 +3,7 @@ import dynamic from "next/dynamic"
 import React, { useState } from "react"
 import { DragDropContext } from "react-beautiful-dnd"
 import { initialData } from "../src/data"
+// import { withAuth } from '../hocs/withAuth';
 
 const Column = dynamic(() => import("../src/Column"), { ssr: false })
 
@@ -19,7 +20,7 @@ const reorderColumnList = (sourceCol, startIndex, endIndex) => {
   return newColumn;
 };
 
-export default function Home() {
+const Home = () => {
   const [state, setState] = useState(initialData)
 
   const handleDragEnd = (result) => {
@@ -116,3 +117,6 @@ export default function Home() {
     </DragDropContext>
   )
 }
+
+// export default withAuth(Home);
+export default Home
