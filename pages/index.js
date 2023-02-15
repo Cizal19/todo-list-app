@@ -14,12 +14,12 @@ import {
 import { useFormik } from 'formik';
 import * as yup from "yup"
 
-
 export default function SignIn() {
 
   const loginInfo = { userName: "Apple", pswd: "hello123" }
+  
   const toast = useToast()
-
+    
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
     initialValues: {
       username: '',
@@ -42,7 +42,7 @@ export default function SignIn() {
           duration: 2000,
           isClosable: true,
         })
-        
+        localStorage.setItem("token", JSON.stringify(true))
       } else {
         toast({
           title: 'Invalid Username or Password',
@@ -52,6 +52,7 @@ export default function SignIn() {
           isClosable: true,
         })
         actions.resetForm()
+        localStorage.setItem("token", JSON.stringify(false))
       }
     }
   })

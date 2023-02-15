@@ -3,7 +3,7 @@ import dynamic from "next/dynamic"
 import React, { useState } from "react"
 import { DragDropContext } from "react-beautiful-dnd"
 import { initialData } from "../src/data"
-// import { withAuth } from '../hocs/withAuth';
+
 
 const Column = dynamic(() => import("../src/Column"), { ssr: false })
 
@@ -118,5 +118,5 @@ const Home = () => {
   )
 }
 
-// export default withAuth(Home);
+
 export default Home
