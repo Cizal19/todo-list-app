@@ -21,6 +21,7 @@ const reorderColumnList = (sourceCol, startIndex, endIndex) => {
 };
 
 const Home = () => {
+  
   const [state, setState] = useState(initialData)
 
   const handleDragEnd = (result) => {
