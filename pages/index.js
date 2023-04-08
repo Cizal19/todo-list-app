@@ -12,6 +12,8 @@ import {
   useToast
 } from '@chakra-ui/react';
 import { useFormik } from 'formik';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import * as yup from "yup"
 
 export default function SignIn() {
@@ -19,6 +21,14 @@ export default function SignIn() {
   const loginInfo = { userName: "Apple", pswd: "hello123" }
   
   const toast = useToast()
+  const router = useRouter()
+
+  useEffect(()=>{
+    const data = JSON.parse(localStorage.getItem("authorized"))
+    if(data === true) {
+      router.push('/home')
+    }
+  },[router])
     
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
     initialValues: {
@@ -43,6 +53,7 @@ export default function SignIn() {
           isClosable: true,
         })
         localStorage.setItem("authorized", JSON.stringify(true))
+        router.push("/home")
       } else {
         toast({
           title: 'Invalid Username or Password',

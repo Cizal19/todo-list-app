@@ -1,6 +1,7 @@
-import { Flex, Heading, Text } from "@chakra-ui/react"
+import { Flex, Heading, Text, Button } from "@chakra-ui/react"
 import dynamic from "next/dynamic"
-import React, { useState } from "react"
+import { useRouter } from "next/router"
+import React, { useEffect, useState } from "react"
 import { DragDropContext } from "react-beautiful-dnd"
 import { initialData } from "../src/data"
 
@@ -21,6 +22,15 @@ const reorderColumnList = (sourceCol, startIndex, endIndex) => {
 };
 
 const Home = () => {
+  
+  const router = useRouter()
+
+  useEffect(()=> {
+    const data = JSON.parse(localStorage.getItem("authorized"))
+    if(data != true) {
+      router.push('/')
+    }
+  },[])
   
   const [state, setState] = useState(initialData)
 
@@ -87,6 +97,11 @@ const Home = () => {
     setState(newState);
   }
 
+  const handleLogout = () => {
+    localStorage.removeItem("authorized")
+    router.push("/")
+  }
+
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
       <Flex
@@ -97,13 +112,22 @@ const Home = () => {
         color="white-text"
         pb="2rem"
       >
-        <Flex py="4rem" flexDir="column" align="center">
-          <Heading fontSize="3xl" fontWeight={600}>
-            React Drag and Drop Interface
-          </Heading>
-          <Text fontSize="20px" fontWeight={600} color="subtle-text">
+        <Flex py="4rem" flexDir="row" align="center" justifyContent="space-between">
+          <Heading fontSize="3xl" fontWeight={600} ml={20}>
             Todo List App
-          </Text>
+          </Heading>
+          <Button
+            type="submit"
+            mr={20}
+            bg={'blue.400'}
+            color={'white'}
+            _hover={{
+              bg: 'blue.500',
+            }}
+            onClick={handleLogout}
+          >
+            Logout
+          </Button>
         </Flex>
 
         <Flex justify="space-between" px="4rem">
