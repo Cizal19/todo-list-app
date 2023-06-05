@@ -1,5 +1,21 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+# Todo-list app
+
+A todolist app created with Chakra UI and react-dnd. 
+
+## Demo
+Here is a working live demo : 
+<br>
+Use username: Apple   password: hello123
+
+## App
+
+- The landing page of the app is the login page.
+- The app employs a HOC to protect the home page.
+- The Home page is a todo-list app, which consists of three columns for tasks that are to-do, completed or in progress .
+- The tasks can be seamlessly dragged and dropped into the differnt columns. 
+
 ## Getting Started
 
 First, run the development server:
