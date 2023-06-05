@@ -5,7 +5,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 A todolist app created with Chakra UI and react-dnd. 
 
 ## Demo
-Here is a working live demo : 
+Here is a working live demo : https://todo-list-app-mauve-eight.vercel.app
 <br>
 Use username: Apple   password: hello123
 
